@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+		<title>Pagina del frontend</title>
+	</head>
+
+	<body>
+		<h1>Bienvenidos</h1>
+		<ul></ul>
+		<form action="localhost:8080/saludos">
+			<label for="inpUser">Usuario</label>
+			<input type="text" id="inpUser"></input>
+			<label for="inpContra">Contraseña</label>	
+			<input type="text" id="inpContra"></input>	
+			<input type="submit">
+		</form>
+	</body>
+</html>

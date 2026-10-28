@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>obtenerSaluadador</title>
+</head>
+
+<body>
+	<h1>Obtener saludador</h1>
+	<button onclick="obtener()">Obtener</button>
+	<label>usuario:</usuario>
+	<input id="usuario" type="text" disabled></input>
+	<script>
+		e = document.getElementById("usuario")
+		function obtener(){
+			url="http://localhost:8080/obtenerSaludador"
+			fetch(url)
+			.then( async res => {
+				r = await res.json();
+				console.log(r);
+				e.value = r.contenido;
+				return r;
+			})
+			.then(datos => {
+				console.log(datos);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+		}
+	</script>
+</body>
+</html>

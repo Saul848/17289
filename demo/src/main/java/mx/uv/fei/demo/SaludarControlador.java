@@ -1,15 +1,8 @@
 package mx.uv.fei.demo;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class SaludarControlador{
 	String nombre;
@@ -63,7 +56,9 @@ public class SaludarControlador{
 				<li><a href="/saludador2/default2">/saludador2/{nombreX}</a></li>
 				<li>/nombramientos (POST | PUT | DELETE)</li>
 				<li><a href="/obtenerSaludador">/obtenerSaludador</a></li>
-			</ul>""";
+				<li><a href="/getQuery">/getQuery?nombre=xxx&paterno=yyy</a></li>
+				<li><a href="/getQuery2">/getQUery?nombre=xxx&[paterno=yyy]</a></li>
+				</ul>""";
 	}
 
 	Saludador saludador;
@@ -78,15 +73,13 @@ public class SaludarControlador{
 	}
 
 	@GetMapping("/getQuery")
-	public String getQueryString(@RequestParam String query, @RequestParam String paterno){
+	public String GetQueryString(@RequestParam String query, @RequestParam String paterno){
 		return query + " "+ paterno;
 	}
 
-	/*
 	@GetMapping("/getQuery2")
-	public String getQueryString2(@RequestParam String query="nombre", @RequestParam(defaultValue=""), String paterno){
+	public String GetQueryString2(@RequestParam String query, @RequestParam(defaultValue="") String paterno){
 		return query + " "+ paterno;
-	}*/
+	}
 
-	
 }
